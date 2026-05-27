@@ -1,5 +1,5 @@
 /**
- * 小暖同学 - Cloudflare Worker 单文件版
+ * HBU.小暖学姐 - Cloudflare Worker 单文件版
  * ======================================
  * 一个文件包含：前端界面 + 后端API代理
  * 
@@ -52,7 +52,7 @@ function getHTML() {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
-  <title>小暖同学 · AI情绪树洞</title>
+  <title>HBU.小暖学姐 · AI情绪树洞</title>
   <script src="https://cdn.tailwindcss.com"><\/script>
   <script>tailwind.config={theme:{extend:{colors:{warm:{50:'#FFF9F0',100:'#FFF3E0'},soft:{50:'#F0F4F8',100:'#E3F2FD'}}}}}<\/script>
   <style>
@@ -86,12 +86,12 @@ function getHTML() {
   <!-- 免责声明 -->
   <div id="disclaimer-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
     <div class="bg-white rounded-2xl shadow-2xl p-6 mx-4 max-w-md w-full animate-fade-in">
-      <div class="text-center mb-4"><span class="text-4xl">🦋</span><h2 class="text-xl font-bold text-gray-800 mt-2">欢迎来到小暖同学</h2></div>
+      <div class="text-center mb-4"><span class="text-4xl">🦋</span><h2 class="text-xl font-bold text-gray-800 mt-2">欢迎来到HBU.小暖学姐</h2></div>
       <div class="text-sm text-gray-600 leading-relaxed space-y-3 mb-6">
-        <p>小暖同学是一个 AI 情绪陪伴伙伴，这里是一个安全的树洞。</p>
+        <p>HBU.小暖学姐是一个 AI 情绪陪伴伙伴，这里是一个安全的树洞。</p>
         <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
           <p class="text-amber-800 font-medium">⚠️ 重要提醒</p>
-          <p class="text-amber-700 text-xs mt-1">小暖同学<strong>不是医生</strong>，不能诊断或治疗任何疾病。如果你正在经历严重的心理危机，请立即联系专业医疗机构。</p>
+          <p class="text-amber-700 text-xs mt-1">HBU.小暖学姐<strong>不是医生</strong>，不能诊断或治疗任何疾病。如果你正在经历严重的心理危机，请立即联系专业医疗机构。</p>
         </div>
       </div>
       <button id="disclaimer-agree" class="w-full py-3 bg-blue-500 text-white rounded-xl font-medium hover:bg-blue-600 transition-colors">我知道了，开始聊天</button>
@@ -113,8 +113,8 @@ function getHTML() {
         </div>
         <a href="tel:4001619995" class="block w-full py-3 bg-warm-500 text-white rounded-xl text-center font-medium hover:bg-warm-600 transition-colors">📞 一键拨打</a>
       </div>
-      <p class="text-center text-sm text-gray-400">小暖会在这里等你回来</p>
-      <button id="crisis-minimize" class="mt-4 w-full py-2 text-sm text-gray-400 hover:text-gray-600 transition-colors">我想继续和小暖聊聊</button>
+      <p class="text-center text-sm text-gray-400">学姐会在这里等你回来</p>
+      <button id="crisis-minimize" class="mt-4 w-full py-2 text-sm text-gray-400 hover:text-gray-600 transition-colors">我想继续和学姐聊聊</button>
     </div>
   </div>
 
@@ -123,7 +123,7 @@ function getHTML() {
     <header class="flex items-center justify-between px-4 py-3 bg-soft-100 border-b border-gray-100 shrink-0" style="min-height:56px">
       <div class="flex items-center gap-2">
         <div class="relative"><span class="text-xl">🦋</span><span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-white"></span></div>
-        <span class="font-semibold text-gray-800">小暖同学</span><span class="text-xs text-gray-400 ml-1">· 24h在线</span>
+        <span class="font-semibold text-gray-800">HBU.小暖学姐</span><span class="text-xs text-gray-400 ml-1">· 24h在线</span>
       </div>
       <div id="mood-tag" class="px-3 py-1 bg-white rounded-full text-xs text-gray-400 border border-gray-200">✨ 等待中</div>
     </header>
@@ -146,12 +146,12 @@ function getHTML() {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </button>
       </div>
-      <p class="text-center text-xs text-gray-300 mt-2">⚠️ 小暖同学不是医生，不能诊断或治疗 | 数据仅保存在你本地浏览器</p>
+      <p class="text-center text-xs text-gray-300 mt-2">⚠️ HBU.小暖学姐不是医生，不能诊断或治疗 | 数据仅保存在你本地浏览器</p>
     </footer>
   </div>
 
   <script>
-    // ===== 小暖同学 - 前端核心逻辑 =====
+    // ===== HBU.小暖学姐 - 前端核心逻辑 =====
     const STORAGE_KEY='xiaonuan_chat_history',DISCLAIMER_KEY='xiaonuan_disclaimer_accepted';
     const MAX_HISTORY=30;
     const RISK_L1=['想死','不想活了','自杀','跳楼','割腕','烧炭','遗书','结束生命','活着没意思','死了算了','不想活','活不下去','上吊','服毒','自尽'];
@@ -184,7 +184,7 @@ function getHTML() {
     function loadHistory(){try{const r=localStorage.getItem(STORAGE_KEY);return r?JSON.parse(r):[]}catch(e){return[]}}
     function saveHistory(){const all=document.querySelectorAll('.chat-bubble');const h=[];all.forEach(b=>{const r=b.dataset.role,c=b.querySelector('.bubble-text')?.textContent||'';if(r&&c)h.push({role:r,content:c})});const t=h.slice(-MAX_HISTORY);try{localStorage.setItem(STORAGE_KEY,JSON.stringify(t))}catch(e){}}
     function addUserBubble(text){welcomeMsg.classList.add('hidden');const b=document.createElement('div');b.className='chat-bubble user-bubble flex justify-end mb-3';b.dataset.role='user';b.innerHTML='<div class="bubble-text bg-white border border-gray-200 rounded-2xl rounded-br-md px-4 py-3 max-w-[75%] text-sm text-gray-800 shadow-sm">'+escapeHtml(text)+'</div>';chatArea.appendChild(b);scrollBottom()}
-    function addBotBubble(text,mood){const t=mood||TAGS[Math.floor(Math.random()*TAGS.length)];const b=document.createElement('div');b.className='chat-bubble bot-bubble flex flex-col mb-3';b.dataset.role='assistant';b.innerHTML='<span class="text-xs text-gray-400 ml-1 mb-1">🦋 小暖 · '+t+'</span><div class="bubble-text bg-soft-100 rounded-2xl rounded-bl-md px-4 py-3 max-w-[75%] w-fit text-sm text-gray-700">'+escapeHtml(text)+'</div>';chatArea.appendChild(b);scrollBottom()}
+    function addBotBubble(text,mood){const t=mood||TAGS[Math.floor(Math.random()*TAGS.length)];const b=document.createElement('div');b.className='chat-bubble bot-bubble flex flex-col mb-3';b.dataset.role='assistant';b.innerHTML='<span class="text-xs text-gray-400 ml-1 mb-1">🌸 小暖学姐 · '+t+'</span><div class="bubble-text bg-soft-100 rounded-2xl rounded-bl-md px-4 py-3 max-w-[75%] w-fit text-sm text-gray-700">'+escapeHtml(text)+'</div>';chatArea.appendChild(b);scrollBottom()}
     function addBot(text,mood){addBotBubble(text,mood)}
     function addSystemMsg(text,type){const bg=type==='warning'?'bg-warm-50 border-warm-200':'bg-gray-50 border-gray-200';const m=document.createElement('div');m.className='flex justify-center mb-3';m.innerHTML='<div class="'+bg+' border rounded-xl px-4 py-2 text-xs text-gray-500 text-center max-w-[85%]">'+escapeHtml(text)+'</div>';chatArea.appendChild(m);scrollBottom()}
     function escapeHtml(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
@@ -223,9 +223,9 @@ function getHTML() {
       finally{removeTyping();isWaiting=false}}
     
     function buildPayload(currentText){const h=loadHistory().filter(m=>m.role!=='system');h.push({role:'user',content:currentText});return h}
-    function addTyping(){const i=document.createElement('div');i.id='typing-indicator';i.className='flex items-center gap-2 px-4 py-3 mb-3';i.innerHTML='<span class="text-xs text-gray-400">小暖正在输入</span><span class="typing-dots flex gap-1"><span class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce" style="animation-delay:0.2s"></span><span class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce" style="animation-delay:0.4s"></span></span>';chatArea.appendChild(i);scrollBottom();return i}
+    function addTyping(){const i=document.createElement('div');i.id='typing-indicator';i.className='flex items-center gap-2 px-4 py-3 mb-3';i.innerHTML='<span class="text-xs text-gray-400">学姐正在输入</span><span class="typing-dots flex gap-1"><span class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce" style="animation-delay:0.2s"></span><span class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce" style="animation-delay:0.4s"></span></span>';chatArea.appendChild(i);scrollBottom();return i}
     function removeTyping(){const i=document.getElementById('typing-indicator');if(i)i.remove()}
-    function createStreamBubble(mood){const t=mood||TAGS[Math.floor(Math.random()*TAGS.length)];const c=document.createElement('div');c.className='chat-bubble bot-bubble flex flex-col mb-3';c.dataset.role='assistant';c.innerHTML='<span class="text-xs text-gray-400 ml-1 mb-1">🦋 小暖 · '+t+'</span><div class="bubble-text bg-soft-100 rounded-2xl rounded-bl-md px-4 py-3 max-w-[75%] w-fit text-sm text-gray-700 streaming-cursor"></div>';chatArea.appendChild(c);const td=c.querySelector('.bubble-text');return{update:(txt)=>{td.textContent=txt;scrollBottom()},finish:()=>td.classList.remove('streaming-cursor')}}
+    function createStreamBubble(mood){const t=mood||TAGS[Math.floor(Math.random()*TAGS.length)];const c=document.createElement('div');c.className='chat-bubble bot-bubble flex flex-col mb-3';c.dataset.role='assistant';c.innerHTML='<span class="text-xs text-gray-400 ml-1 mb-1">🌸 小暖学姐 · '+t+'</span><div class="bubble-text bg-soft-100 rounded-2xl rounded-bl-md px-4 py-3 max-w-[75%] w-fit text-sm text-gray-700 streaming-cursor"></div>';chatArea.appendChild(c);const td=c.querySelector('.bubble-text');return{update:(txt)=>{td.textContent=txt;scrollBottom()},finish:()=>td.classList.remove('streaming-cursor')}}
     window.copyPhone=async function(phone){try{await navigator.clipboard.writeText(phone)}catch(e){const ta=document.createElement('textarea');ta.value=phone;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta)}}
     document.getElementById('voice-btn').addEventListener('click',()=>addSystemMsg('🎤 语音输入功能即将开放，敬请期待','info'));
     document.addEventListener('DOMContentLoaded',init);

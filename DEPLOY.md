@@ -1,6 +1,6 @@
-# 🚀 小暖同学 - 线上部署指南
+# 🚀 HBU.小暖学姐 - 线上部署指南
 
-> 让你的「小暖同学」在手机上随时随地打开！
+> 让你的「HBU.小暖学姐」在手机上随时随地打开！
 
 ---
 
@@ -22,7 +22,7 @@ echo ".env" > .gitignore
 # 4. 提交代码
 git init
 git add .
-git commit -m "小暖同学 MVP 初版"
+git commit -m "HBU.小暖学姐 MVP 初版"
 
 # 5. 在 GitHub 上创建新仓库（例如 xiaonuan-mvp）
 #    不要勾选 "Add a README file"（我们已有 README）
@@ -129,7 +129,7 @@ xiaonuan-miniapp/
     "pages/chat/chat"
   ],
   "window": {
-    "navigationBarTitleText": "小暖同学",
+    "navigationBarTitleText": "HBU.小暖学姐",
     "navigationBarBackgroundColor": "#E3F2FD",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#FFF9F0"
@@ -147,7 +147,7 @@ xiaonuan-miniapp/
   <view class="header-left">
     <text class="logo">🦋</text>
     <view class="online-dot"></view>
-    <text class="title">小暖同学</text>
+    <text class="title">HBU.小暖学姐</text>
     <text class="subtitle">· 24h在线</text>
   </view>
   <view class="mood-tag">{{moodTag}}</view>
@@ -163,7 +163,7 @@ xiaonuan-miniapp/
 
   <view wx:for="{{messages}}" wx:key="index" id="msg-{{index}}" class="msg-wrapper {{item.role === 'user' ? 'msg-right' : 'msg-left'}}">
     <!-- AI 情绪标签 -->
-    <text wx:if="{{item.role === 'assistant'}}" class="mood-label">🦋 小暖 · {{item.mood || '我在听'}}</text>
+    <text wx:if="{{item.role === 'assistant'}}" class="mood-label">🌸 小暖学姐 · {{item.mood || '我在听'}}</text>
     <!-- 气泡 -->
     <view class="bubble {{item.role === 'user' ? 'bubble-user' : 'bubble-ai'}}">
       <text>{{item.content}}</text>
@@ -172,7 +172,7 @@ xiaonuan-miniapp/
 
   <!-- 正在输入 -->
   <view wx:if="{{typing}}" class="typing-indicator">
-    <text class="typing-text">小暖正在输入</text>
+    <text class="typing-text">学姐正在输入</text>
     <view class="typing-dots">
       <view class="dot"></view>
       <view class="dot"></view>
@@ -198,14 +198,14 @@ xiaonuan-miniapp/
 
 <!-- 底部声明 -->
 <view class="footer-disclaimer">
-  <text>⚠️ 小暖同学不是医生，不能诊断或治疗 | 数据仅保存在本地</text>
+  <text>⚠️ HBU.小暖学姐不是医生，不能诊断或治疗 | 数据仅保存在本地</text>
 </view>
 ```
 
 #### 3. `pages/chat/chat.js` - 核心逻辑
 
 ```javascript
-// 小暖同学 - 微信小程序对话逻辑
+// HBU.小暖学姐 - 微信小程序对话逻辑
 const API_URL = 'https://你的Render域名.onrender.com';  // ← 改成你的域名
 
 Page({
@@ -334,7 +334,7 @@ Page({
 #### 4. `pages/chat/chat.wxss` - 样式
 
 ```css
-/* 小暖同学 - 微信小程序样式 */
+/* HBU.小暖学姐 - 微信小程序样式 */
 page {
   background: linear-gradient(180deg, #FFF9F0, #F0F4F8);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -482,7 +482,7 @@ page {
 #### 5. `utils/api.js` - API 请求封装
 
 ```javascript
-// 小暖同学 - API 工具函数
+// HBU.小暖学姐 - API 工具函数
 const BASE_URL = 'https://你的Render域名.onrender.com';  // ← 改成你的域名
 
 function chat(messages, stream = false) {

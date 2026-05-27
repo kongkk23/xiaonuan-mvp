@@ -1,5 +1,5 @@
 /**
- * 小暖同学 - 前端核心逻辑
+ * HBU.小暖学姐 - 前端核心逻辑
  * =========================
  * 功能：对话渲染、LocalStorage管理、风险词检测、危机干预、
  *       SSE流式接收、情绪卡片生成
@@ -231,7 +231,7 @@ function addBotBubble(text, mood) {
   bubble.className = 'chat-bubble bot-bubble flex flex-col mb-3';
   bubble.dataset.role = 'assistant';
   bubble.innerHTML = `
-    <span class="text-xs text-gray-400 ml-1 mb-1">🦋 小暖 · ${tag}</span>
+    <span class="text-xs text-gray-400 ml-1 mb-1">🌸 小暖学姐 · ${tag}</span>
     <div class="bubble-text bg-soft-100 rounded-2xl rounded-bl-md px-4 py-3 max-w-[75%] w-fit text-sm text-gray-700">
       ${escapeHtml(text)}
     </div>
@@ -241,7 +241,7 @@ function addBotBubble(text, mood) {
 }
 
 /**
- * 添加"小暖正在输入..."指示器。
+ * 添加"学姐正在输入..."指示器。
  * @returns {HTMLElement} 指示器DOM元素，用于后续移除
  */
 function addTypingIndicator() {
@@ -249,7 +249,7 @@ function addTypingIndicator() {
   indicator.id = 'typing-indicator';
   indicator.className = 'flex items-center gap-2 px-4 py-3 mb-3';
   indicator.innerHTML = `
-    <span class="text-xs text-gray-400">小暖正在输入</span>
+    <span class="text-xs text-gray-400">学姐正在输入</span>
     <span class="typing-dots flex gap-1">
       <span class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce"></span>
       <span class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce" style="animation-delay:0.2s"></span>
@@ -299,7 +299,7 @@ function createStreamingBubble(mood) {
   container.className = 'chat-bubble bot-bubble flex flex-col mb-3';
   container.dataset.role = 'assistant';
   container.innerHTML = `
-    <span class="text-xs text-gray-400 ml-1 mb-1">🦋 小暖 · ${tag}</span>
+    <span class="text-xs text-gray-400 ml-1 mb-1">🌸 小暖学姐 · ${tag}</span>
     <div class="bubble-text bg-soft-100 rounded-2xl rounded-bl-md px-4 py-3 max-w-[75%] w-fit text-sm text-gray-700 streaming-cursor">
     </div>
   `;
@@ -670,7 +670,7 @@ async function saveEmotionCard() {
       useCORS: true,
     });
     const link = document.createElement('a');
-    link.download = '小暖同学_情绪卡片.png';
+    link.download = 'HBU.小暖学姐_情绪卡片.png';
     link.href = canvas.toDataURL('image/png');
     link.click();
     addSystemMessage('✅ 情绪卡片已保存到你的设备', 'info');
