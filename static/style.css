@@ -1,0 +1,232 @@
+/**
+ * 小暖同学 - 自定义样式
+ * ======================
+ * 补充 Tailwind CSS 无法覆盖的细节：
+ * - 聊天气泡动画
+ * - 风险词脉冲效果
+ * - 危机干预模式样式
+ * - 打字指示器动画
+ */
+
+/* ===== 全局 ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+}
+
+/* ===== 聊天区域滚动条美化 ===== */
+#chat-area::-webkit-scrollbar {
+  width: 4px;
+}
+#chat-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+#chat-area::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+#chat-area::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* ===== 消息气泡动画 ===== */
+.chat-bubble {
+  animation: bubble-in 0.3s ease-out;
+}
+
+@keyframes bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 用户气泡微调 */
+.user-bubble .bubble-text {
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+/* AI气泡微调 */
+.bot-bubble .bubble-text {
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+/* ===== 流式输出光标 ===== */
+.streaming-cursor::after {
+  content: '▍';
+  animation: blink 0.8s infinite;
+  color: #60a5fa;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ===== 打字指示器跳动小点 ===== */
+.typing-dots span {
+  animation: dot-bounce 1.4s infinite ease-in-out both;
+}
+.typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+.typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+.typing-dots span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes dot-bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== 风险词脉冲动画 ===== */
+.risk-pulse-active {
+  animation: risk-pulse 1.2s ease-in-out infinite;
+  border: 2px solid #fbbf24 !important;
+}
+
+@keyframes risk-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(251, 191, 36, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+  }
+}
+
+/* ===== 危机干预模式 ===== */
+#crisis-overlay {
+  animation: crisis-fade-in 0.5s ease-out;
+}
+
+@keyframes crisis-fade-in {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* 危机模式下的关怀卡片 */
+#crisis-overlay .rounded-2xl {
+  animation: card-slide-up 0.5s ease-out;
+}
+
+@keyframes card-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== 免责声明弹窗动画 ===== */
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== 输入框自动扩展 ===== */
+#user-input {
+  min-height: 44px;
+  line-height: 1.5;
+}
+
+/* 移除 textarea 默认样式 */
+#user-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(147, 197, 253, 0.3);
+}
+
+/* ===== 发送按钮过渡 ===== */
+#send-btn {
+  transition: all 0.2s ease;
+}
+#send-btn:not(:disabled):hover {
+  transform: scale(1.05);
+}
+#send-btn:not(:disabled):active {
+  transform: scale(0.95);
+}
+
+/* ===== 情绪卡片装饰 ===== */
+#emotion-card {
+  position: relative;
+  overflow: hidden;
+}
+
+#emotion-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* ===== 响应式微调 ===== */
+@media (max-width: 640px) {
+  #main-app {
+    border-radius: 0;
+  }
+
+  .bubble-text {
+    max-width: 85% !important;
+  }
+
+  #crisis-overlay .rounded-2xl {
+    margin: 0 12px;
+    max-width: calc(100vw - 24px);
+  }
+}
+
+/* ===== 手机端输入适配 ===== */
+@media (max-width: 480px) {
+  footer {
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ===== 可点击的电话号码 ===== */
+a[href^="tel:"] {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== 按钮触摸反馈 ===== */
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
